@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="robots" content="noindex"/>
+		<title>Ya: task 3</title>
+		<link type="text/css" rel="stylesheet/less" href="/ya/3/styles/reset.css"/>
+		<link type="text/css" rel="stylesheet/less" href="/ya/3/styles/main.css"/>
+		<script type="text/javascript" src="/ya/3/scripts/less.min.js"></script>
+	</head>
+	<body>
+		<div class="page">
+			<div class="player">
+				<div class="player__section player__section--a">
+					<div class="display">
+						<div class="display__item display__item--track_filename"></div>
+						<div class="display__item display__item--track_data"></div>
+						<div class="display__item display__item--visualization"></div>
+						<div class="display__item display__item--timing">
+							<div class="indicator indicator--passed_time"></div>
+							<div class="indicator indicator--line">
+								<div class="indicator indicator--line__bar">
+									<div class="indicator indicator--line__bar__runner"></div>
+								</div>
+							</div>
+							<div class="indicator indicator--duration"></div>
+							<div class="clear"></div>
+						</div>
+						<div class="display__item display__item--data"></div>
+						<div class="display__glass"></div>
+					</div>
+				</div>
+				
+				<div class="player__section player__section--b">
+					<div class="panel">
+						<div class="control control--button control--button-upload" data-control-name="upload">
+							<p class="control--button__label">Upload file</p>
+							<input type="file"/>
+						</div>
+						<div class="control control--button control--button-play" data-control-name="play" data-control-type="button">
+							<p class="control--button__label">Play</p>
+						</div>
+						<div class="control control--button control--button-stop" data-control-name="stop" data-control-type="button">
+							<p class="control--button__label">Stop</p>
+						</div>
+						<div class="control control--switcher control--switcher-equalizer" data-control-type="switcher" data-control-name="equalizer">
+							<p class="control--switcher__value"></p>
+							<p class="control--switcher__label">Equalizer</p>
+							<div class="control--switcher__item control--switcher__item--prev" data-switcher="equalizer-prev"></div>
+							<div class="control--switcher__item control--switcher__item--next" data-switcher="equalizer-next"></div>
+						</div>
+						<div class="control control--switcher control--switcher-display" data-control-type="switcher" data-control-name="display">
+							<p class="control--switcher__value"></p>
+							<p class="control--switcher__label">Display</p>
+							<div class="control--switcher__item control--switcher__item--prev" data-switcher="display-prev"></div>
+							<div class="control--switcher__item control--switcher__item--next" data-switcher="display-next"></div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clear"></div>
+				
+				<div class="control control--link control--link-sample" data-control-name="sample" data-control-type="button">Play sample</div>
+				
+				<div class="player__wait"></div>
+				<div class="player__dropzone"></div>
+			</div>
+			
+			<a href="https://vk.com/album57163_168846823" target="_blank" class="link link--inspiration">*</a>
+		</div>
+		
+		<script type="text/javascript" src="/ya/3/scripts/id3.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/LoopedList.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/Equalizer.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/Visualization.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/EventManager.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/AudioPlayer.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/Model.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/View.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/Controller.js"></script>
+		<script type="text/javascript" src="/ya/3/scripts/main.js"></script>
+	</body>
+</html>
