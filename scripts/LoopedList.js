@@ -1,45 +1,43 @@
 ( function( window, document ) {
 	var LoopedList = function( parameters ) {
-		var that = this,
-			presets = [],
-			presets_length = 0,
-			current_index = 0,
-			items = parameters.items;
-			
-		var normalizeIndex = function( index ) {
-			return ( ( index % presets_length + presets_length ) % presets_length ) || 0;
-		};
-			
-		that.add = function( name, values ) {
-			presets[ presets_length++ ] = {
-				name: name,
-				values: values
-			};
-		};
+		this.items = [];
+		this.items_length = 0;
+		this.current_index = 0;
 		
-		that.addItems = function( items ) {
-			var name;
-			
-			for ( name in items ) {
-				that.add( name, items[ name ] );
-			}
-		};
-		
-		that.get = function() {
-			return presets[ current_index ];
-		};
-		
-		that.set = function( index ) {
-			current_index = normalizeIndex( index || 0 );
-		};
-		
-		that.move = function( direction ) {
-			that.set( current_index + direction );
-		};
-		
-		if ( items !== undefined ) {
-			that.addItems( items );
+		if ( parameters.items !== undefined ) {
+			this.addItems( parameters.items );
 		}
+	};
+	
+	LoopedList.prototype.normalizeIndex = function( index ) {
+		return ( ( index % this.items_length + this.items_length ) % this.items_length ) || 0;
+	};
+	
+	LoopedList.prototype.add = function( name, values ) {
+		this.items[ this.items_length++ ] = {
+			name: name,
+			values: values
+		};
+	};
+	
+	LoopedList.prototype.addItems = function( items ) {
+		var name;
+		
+		for ( name in items ) {
+			this.add( name, items[ name ] );
+		}
+	};
+	
+	LoopedList.prototype.get = function() {
+		return this.items[ this.current_index ];
+	};
+	
+	LoopedList.prototype.set = function( index ) {
+		this.current_index = this.normalizeIndex( index || 0 );
+	};
+	
+	LoopedList.prototype.move = function( direction ) {
+		this.set( this.current_index + direction );
 	};
 	
 	window.LoopedList = window.LoopedList || LoopedList;

@@ -218,8 +218,6 @@ body, html {
 					height: 100%;
 					left: 0;
 					top: 0;
-					/*background-image: url(../images/ui/noise.png);
-					opacity: 0.04;*/
 				}
 				
 				&__item {
@@ -417,7 +415,7 @@ body, html {
 			&-play, &-stop {
 				width: 51px;
 				height: 82px;
-				background-image: url(../images/ui/braun-button-white.png);
+				background-image: url(../images/ui/button-white.png);
 				background-position: 0px 0px;
 				
 				&:active {
@@ -428,7 +426,7 @@ body, html {
 			&-upload {
 				width: 51px;
 				height: 82px;
-				background-image: url(../images/ui/braun-button-green.png);
+				background-image: url(../images/ui/button-green.png);
 				background-position: 0px 0px;
 				
 				&:active {
