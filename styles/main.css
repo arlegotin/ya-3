@@ -1,74 +1,74 @@
 /* variables & mixins */
 
 .box-sizing {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .clear {
-	clear: both;
+    clear: both;
 }
 
 .clear-fix {
-	&:after {
-		content: '';
-		display: block;
-		clear: both;
-		width: 100%;
-	}
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+        width: 100%;
+    }
 }
 
 .contain {
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .cover {
-	background-size: cover;
-	background-position: center center;
+    background-size: cover;
+    background-position: center center;
 }
 
 .border-radius( @value: 1000px ) {
-	-webkit-border-radius: @value;
-	border-radius: @value;
-	-webkit-background-clip: padding-box; 
-	-moz-background-clip: padding; 
-	background-clip: padding-box;
+    -webkit-border-radius: @value;
+    border-radius: @value;
+    -webkit-background-clip: padding-box; 
+    -moz-background-clip: padding; 
+    background-clip: padding-box;
 }
 
 .box-shadow(@value) {
-	-webkit-box-shadow: @value;
-	box-shadow: @value;
+    -webkit-box-shadow: @value;
+    box-shadow: @value;
 }
 
 .rotate( @value: 0deg ) {
-	-webkit-transform+_: rotate( @value );
-	-moz-transform+_: rotate( @value );
-	-ms-transform+_: rotate( @value );
-	-o-transform+_: rotate( @value );
-	transform+_: rotate( @value );
+    -webkit-transform+_: rotate( @value );
+    -moz-transform+_: rotate( @value );
+    -ms-transform+_: rotate( @value );
+    -o-transform+_: rotate( @value );
+    transform+_: rotate( @value );
 }
 
 .translate(@x: 0, @y: 0, @z: 0) {
-	-webkit-transform:       translate(@x, @y);
-	-moz-transform: 	 translate(@x, @y);
-	-ms-transform: 		 translate(@x, @y);
-	-o-transform: 		 translate(@x, @y);
-	transform:       translate(@x, @y);
+    -webkit-transform:       translate(@x, @y);
+    -moz-transform:      translate(@x, @y);
+    -ms-transform:          translate(@x, @y);
+    -o-transform:          translate(@x, @y);
+    transform:       translate(@x, @y);
 }
 
 .animation(@str) {
-	-webkit-animation: @str;
-	-moz-animation: @str;
-	-o-animation: @str;
-	animation: @str;
+    -webkit-animation: @str;
+    -moz-animation: @str;
+    -o-animation: @str;
+    animation: @str;
 }
 
 .wait-animation {
-	0% { .rotate(0deg) }
-	100% { .rotate(90deg) }
+    0% { .rotate(0deg) }
+    100% { .rotate(90deg) }
 }
 
 @-webkit-keyframes wait-keyframe { .wait-animation; }
@@ -79,420 +79,420 @@
 /* layout */
 
 body, html {
-	height: 100%;
+    height: 100%;
 }
 
 .page {
-	height: 100%;
-	
-	.link {
-		&--inspiration {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-			cursor: pointer;
-			font-size: 22px;
-			padding: 16px;
-			color: blue;
-			text-transform: lowercase;
-			
-			&:hover {
-				color: red;
-			}
-		}
-	}
+    height: 100%;
+    
+    .link {
+        &--inspiration {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 22px;
+            padding: 16px;
+            color: blue;
+            text-transform: lowercase;
+            
+            &:hover {
+                color: red;
+            }
+        }
+    }
 }
 
 .player {
-	@gold: 0.618;
-	@width: 550px;
-	@height_a: 130px;
-	@height_b: 90px;
-	@height: @height_a + @height_b;
-	@size_button: 50px;
-	@color_lamp: #DF2935;
-	@color_display: #F3F4EF;
-	@color_panel: #F0EFF0;
-	@color_text: #171B1A;
-	
-	position: absolute;
-	width: @width;
-	height: @height;
-	left: 50%;
-	top: 50%;
-	margin-left: -@width / 2;
-	margin-top: -@height / 2;
-	font-family: Helvetica, Verdana, Arial, sans-serif;
-	/*overflow: hidden;
-	.border-radius(5px);*/
-	
-	&__wait {
-		position: absolute;
-		z-index: 6;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background-color: fadeout(@color_display, 20%);
-		background-repeat: no-repeat;
-		background-position: center center;
-		display: none;
-		
-		&--shown {
-			display: block;
-			
-			&:after {
-				@s: 16px;
-			
-				content: '';
-				position: absolute;
-				width: @s;
-				height: @s;
-				left: 50%;
-				top: 50%;
-				margin-left: -@s / 2;
-				margin-top: -@s / 2;
-				background-color: @color_lamp;
-				.animation(wait-keyframe 500ms infinite);
-			}
-		}
-	}
-	
-	&__dropzone {
-		position: absolute;
-		z-index: 4;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background-color: fadeout(@color_display, 20%);
-		background-repeat: no-repeat;
-		background-position: center center;
-		display: none;
-		
-		&--shown {
-			display: block;
-			
-			&:after {
-				content: 'Drop file here';
-				font-size: 12px;
-				text-align: center;
-				height: 12px;
-				position: absolute;
-				color: @color_lamp;
-				left: 0;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				margin: auto;
-				pointer-events: none;
-			}
-		}
-	}
-	
-	&__section {
-		position: relative;
-		z-index: 2;
-		width: @width;
-	
-		&--a {
-			height: @height_a;
-			background-color: @color_display;
-			
-			.display {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				font-size: 10px;
-				color: @color_lamp;
-				border: 10px solid @color_panel;
-				border-left-width: 8px;
-				border-right-width: 8px;
-				.box-sizing;
-				.box-shadow(0px 0px 8px 2px rgba(0, 0, 0, 0.15) inset);
-				
-				&__glass {
-					position: absolute;
-					z-index: 2;
-					width: 100%;
-					height: 100%;
-					left: 0;
-					top: 0;
-				}
-				
-				&__item {
-					position: absolute;
-					
-					&--hidden {
-						display: none;
-					}
-					
-					&--track_data, &--track_filename {
-						@w: @width - 50px;
-						@h: 20px;
-						@hh: 16px;
-						
-						width: @w;
-						height: @h;
-						line-height: @h;
-						text-align: center;
-						left: 50%;
-						margin-left: -@w / 2;
-						top: @h / 3;
-						overflow: hidden;
-					}
-					
-					&--visualization {
-						@w: 436px;
-						@h: 50px;
-						
-						width: @w;
-						height: @h;
-						left: 50%;
-						margin-left: -@w / 2;
-						top: 30px;
-						
-						canvas {
-							display: block;
-						}
-					}
-				
-					&--timing {
-						@w: @width - 50px;
-						@ww: 30px;
-						@h: 20px;
-						@hh: 4px;
-						
-						width: @w;
-						height: @h;
-						left: 50%;
-						margin-left: -@w / 2;
-						bottom: @h / 4;
-					
-						.indicator {
-							float: left;
-							line-height: @h;
-							height: @h;
-						
-							&--passed_time {
-								width: @ww;
-								text-align: left;
-							}
-							
-							&--line {
-								position: relative;
-								width: @w - @ww * 2;
-								height: @h;
-							
-								&__bar {
-									position: absolute;
-									width: 100%;
-									height: @hh;
-									left: 0;
-									top: 50%;
-									margin-top: -@hh / 2;
-									background-color: fadeout(@color_lamp, 75%);
-									
-									&__runner {
-										position: absolute;
-										width: 0%;
-										height: 100%;
-										left: 0;
-										top: 0;
-										background-color: @color_lamp;
-									}
-								}
-							}
-							
-							&--duration {
-								width: @ww;
-								text-align: right;
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		&--b {
-			height: @height_b;
-			background-color: @color_panel;
-			
-			.panel {
-				position: relative;
-				width: 100%;
-				height: 100%;
-			
-				.control {
-					position: absolute;
-					
-					&--button {
-						&-play, &-stop {
-							left: 49px;
-							top: 5px;
-						}
-						
-						&-upload {
-							right: 49px;
-							top: 5px;
-						}
-					}
-					
-					&--switcher {
-						&-equalizer {
-							left: 130px;
-							top: 33px;
-						}
-						
-						&-display {
-							left: 193px;
-							top: 33px;
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	.control {
-		&--switcher {
-			@sw: 12px;
-			@sh: 18px;
-		
-			height: @sh;
-			width: @sw * (2 + @gold);
-		
-			&-equalizer {
-			}
-		
-			&__item {
-				cursor: pointer;
-				position: absolute;
-				width: @sw;
-				height: @sh;
-				top: 0px;
-				width: 0;
-				height: 0;
-				border-style: solid;
-				
-				&--prev {
-					left: 0;
-					border-width: @sh / 2 @sw @sh / 2 0;
-					border-color: transparent @color_text transparent transparent;
-				}
-				
-				&--next {
-					right: 0;
-					border-width: @sh / 2 0 @sh / 2 @sw;
-					border-color: transparent transparent transparent @color_text;
-				}
-			}
-			
-			&__value {
-				position: absolute;
-				width: 64px;
-				left: 50%;
-				margin-left: -32px;
-				line-height: 12px;
-				font-size: 10px;
-				text-align: center;
-				text-transform: lowercase;
-				color: @color_text;
-				top: -23px;
-				white-space: nowrap;
-				pointer-events: none;
-			}
-			
-			&__label {
-				bottom: -22px;
-			}
-		}
-	
-		&--button {
-			display: block;
-			cursor: pointer;
-			
-			&-play, &-stop {
-				width: 51px;
-				height: 82px;
-				background-image: url(../images/ui/button-white.png);
-				background-position: 0px 0px;
-				
-				&:active {
-					background-position: -51px 0px;
-				}
-			}
-		
-			&-upload {
-				width: 51px;
-				height: 82px;
-				background-image: url(../images/ui/button-green.png);
-				background-position: 0px 0px;
-				
-				&:active {
-					background-position: -51px 0px;
-				}
-			
-				input {
-					position: absolute;
-					width: 100%;
-					height: 100%;
-					left: 0;
-					top: 0;
-					opacity: 0;
-					cursor: pointer;
-				}
-			}
-			
-			&__label {
-				bottom: 14px;
-			}
-		}
-		
-		&--button, &--switcher {
-			&__label {
-				position: absolute;
-				width: 64px;
-				left: 50%;
-				margin-left: -32px;
-				line-height: 12px;
-				font-size: 10px;
-				text-align: center;
-				text-transform: lowercase;
-				color: @color_text;
-				white-space: nowrap;
-				pointer-events: none;
-			}
-		}
-		
-		&--link {
-			cursor: pointer;
-			font-size: 10px;
-			line-height: 14px;
-			border-bottom: 1px dashed #506548;
-			color: #506548;
-			text-transform: lowercase;
-			
-			&:hover {
-				color: @color_lamp;
-				border-color: @color_lamp;
-			}
-			
-			&-sample {
-				position: absolute;
-				right: 46px;
-				bottom: -35px;
-			}
-		}
-		
-		&--disabled {
-			cursor: default;
-			opacity: 0.25;
-			pointer-events: none;
-		}
-		
-		&--hidden {
-			display: none;
-		}
-	}
+    @gold: 0.618;
+    @width: 550px;
+    @height_a: 130px;
+    @height_b: 90px;
+    @height: @height_a + @height_b;
+    @size_button: 50px;
+    @color_lamp: #DF2935;
+    @color_display: #F3F4EF;
+    @color_panel: #F0EFF0;
+    @color_text: #171B1A;
+    
+    position: absolute;
+    width: @width;
+    height: @height;
+    left: 50%;
+    top: 50%;
+    margin-left: -@width / 2;
+    margin-top: -@height / 2;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    /*overflow: hidden;
+    .border-radius(5px);*/
+    
+    &__wait {
+        position: absolute;
+        z-index: 6;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: fadeout(@color_display, 20%);
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: none;
+        
+        &--shown {
+            display: block;
+            
+            &:after {
+                @s: 16px;
+            
+                content: '';
+                position: absolute;
+                width: @s;
+                height: @s;
+                left: 50%;
+                top: 50%;
+                margin-left: -@s / 2;
+                margin-top: -@s / 2;
+                background-color: @color_lamp;
+                .animation(wait-keyframe 500ms infinite);
+            }
+        }
+    }
+    
+    &__dropzone {
+        position: absolute;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: fadeout(@color_display, 20%);
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: none;
+        
+        &--shown {
+            display: block;
+            
+            &:after {
+                content: 'Drop file here';
+                font-size: 12px;
+                text-align: center;
+                height: 12px;
+                position: absolute;
+                color: @color_lamp;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                pointer-events: none;
+            }
+        }
+    }
+    
+    &__section {
+        position: relative;
+        z-index: 2;
+        width: @width;
+    
+        &--a {
+            height: @height_a;
+            background-color: @color_display;
+            
+            .display {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                font-size: 10px;
+                color: @color_lamp;
+                border: 10px solid @color_panel;
+                border-left-width: 8px;
+                border-right-width: 8px;
+                .box-sizing;
+                .box-shadow(0px 0px 8px 2px rgba(0, 0, 0, 0.15) inset);
+                
+                &__glass {
+                    position: absolute;
+                    z-index: 2;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                }
+                
+                &__item {
+                    position: absolute;
+                    
+                    &--hidden {
+                        display: none;
+                    }
+                    
+                    &--track_data, &--track_filename {
+                        @w: @width - 50px;
+                        @h: 20px;
+                        @hh: 16px;
+                        
+                        width: @w;
+                        height: @h;
+                        line-height: @h;
+                        text-align: center;
+                        left: 50%;
+                        margin-left: -@w / 2;
+                        top: @h / 3;
+                        overflow: hidden;
+                    }
+                    
+                    &--visualization {
+                        @w: 436px;
+                        @h: 50px;
+                        
+                        width: @w;
+                        height: @h;
+                        left: 50%;
+                        margin-left: -@w / 2;
+                        top: 30px;
+                        
+                        canvas {
+                            display: block;
+                        }
+                    }
+                
+                    &--timing {
+                        @w: @width - 50px;
+                        @ww: 30px;
+                        @h: 20px;
+                        @hh: 4px;
+                        
+                        width: @w;
+                        height: @h;
+                        left: 50%;
+                        margin-left: -@w / 2;
+                        bottom: @h / 4;
+                    
+                        .indicator {
+                            float: left;
+                            line-height: @h;
+                            height: @h;
+                        
+                            &--passed_time {
+                                width: @ww;
+                                text-align: left;
+                            }
+                            
+                            &--line {
+                                position: relative;
+                                width: @w - @ww * 2;
+                                height: @h;
+                            
+                                &__bar {
+                                    position: absolute;
+                                    width: 100%;
+                                    height: @hh;
+                                    left: 0;
+                                    top: 50%;
+                                    margin-top: -@hh / 2;
+                                    background-color: fadeout(@color_lamp, 75%);
+                                    
+                                    &__runner {
+                                        position: absolute;
+                                        width: 0%;
+                                        height: 100%;
+                                        left: 0;
+                                        top: 0;
+                                        background-color: @color_lamp;
+                                    }
+                                }
+                            }
+                            
+                            &--duration {
+                                width: @ww;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        &--b {
+            height: @height_b;
+            background-color: @color_panel;
+            
+            .panel {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            
+                .control {
+                    position: absolute;
+                    
+                    &--button {
+                        &-play, &-stop {
+                            left: 49px;
+                            top: 5px;
+                        }
+                        
+                        &-upload {
+                            right: 49px;
+                            top: 5px;
+                        }
+                    }
+                    
+                    &--switcher {
+                        &-equalizer {
+                            left: 130px;
+                            top: 33px;
+                        }
+                        
+                        &-display {
+                            left: 193px;
+                            top: 33px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .control {
+        &--switcher {
+            @sw: 12px;
+            @sh: 18px;
+        
+            height: @sh;
+            width: @sw * (2 + @gold);
+        
+            &-equalizer {
+            }
+        
+            &__item {
+                cursor: pointer;
+                position: absolute;
+                width: @sw;
+                height: @sh;
+                top: 0px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                
+                &--prev {
+                    left: 0;
+                    border-width: @sh / 2 @sw @sh / 2 0;
+                    border-color: transparent @color_text transparent transparent;
+                }
+                
+                &--next {
+                    right: 0;
+                    border-width: @sh / 2 0 @sh / 2 @sw;
+                    border-color: transparent transparent transparent @color_text;
+                }
+            }
+            
+            &__value {
+                position: absolute;
+                width: 64px;
+                left: 50%;
+                margin-left: -32px;
+                line-height: 12px;
+                font-size: 10px;
+                text-align: center;
+                text-transform: lowercase;
+                color: @color_text;
+                top: -23px;
+                white-space: nowrap;
+                pointer-events: none;
+            }
+            
+            &__label {
+                bottom: -22px;
+            }
+        }
+    
+        &--button {
+            display: block;
+            cursor: pointer;
+            
+            &-play, &-stop {
+                width: 51px;
+                height: 82px;
+                background-image: url(../images/ui/button-white.png);
+                background-position: 0px 0px;
+                
+                &:active {
+                    background-position: -51px 0px;
+                }
+            }
+        
+            &-upload {
+                width: 51px;
+                height: 82px;
+                background-image: url(../images/ui/button-green.png);
+                background-position: 0px 0px;
+                
+                &:active {
+                    background-position: -51px 0px;
+                }
+            
+                input {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+            }
+            
+            &__label {
+                bottom: 14px;
+            }
+        }
+        
+        &--button, &--switcher {
+            &__label {
+                position: absolute;
+                width: 64px;
+                left: 50%;
+                margin-left: -32px;
+                line-height: 12px;
+                font-size: 10px;
+                text-align: center;
+                text-transform: lowercase;
+                color: @color_text;
+                white-space: nowrap;
+                pointer-events: none;
+            }
+        }
+        
+        &--link {
+            cursor: pointer;
+            font-size: 10px;
+            line-height: 14px;
+            border-bottom: 1px dashed #506548;
+            color: #506548;
+            text-transform: lowercase;
+            
+            &:hover {
+                color: @color_lamp;
+                border-color: @color_lamp;
+            }
+            
+            &-sample {
+                position: absolute;
+                right: 46px;
+                bottom: -35px;
+            }
+        }
+        
+        &--disabled {
+            cursor: default;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        
+        &--hidden {
+            display: none;
+        }
+    }
 }
