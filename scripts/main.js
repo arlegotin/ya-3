@@ -1,4 +1,4 @@
-( function( window, document, Model, View, Controller, undefined ) {
+( function( window, document, $, Model, View, Controller, undefined ) {
     var main = function() {
         var controller = new Controller( {
             model: new Model( {
@@ -28,4 +28,4 @@
     };
     
     $( main );
-} )( window, document, window.Model, window.View, window.Controller );
+} )( window, document, window.jQuery, window.Model, window.View, window.Controller );
