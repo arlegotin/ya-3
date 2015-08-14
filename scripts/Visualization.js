@@ -7,6 +7,7 @@
             width = parent.offsetWidth,
             height = parent.offsetHeight,
             color = options.color,
+            bar_gap = 12,
             byte_size = 255;
         
         canvas.width = width;
@@ -15,8 +16,7 @@
         parent.appendChild( canvas );
         
         that.draw = function( data, length ) {
-            var bar_gap = 12,
-                bar_width = ( width - ( length - 1 ) * bar_gap ) / length,
+            var bar_width = ( width - ( length - 1 ) * bar_gap ) / length,
                 i,
                 bar_height,
                 x;
